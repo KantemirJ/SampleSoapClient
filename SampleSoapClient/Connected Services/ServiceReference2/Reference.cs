@@ -86,6 +86,12 @@ namespace ServiceReference2
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseManager/InsertData", ReplyAction="*")]
         System.Threading.Tasks.Task<ServiceReference2.InsertDataResponse> InsertDataAsync(ServiceReference2.InsertDataRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseManager/GetDataByName", ReplyAction="*")]
+        System.Threading.Tasks.Task<ServiceReference2.GetDataByNameResponse> GetDataByNameAsync(ServiceReference2.GetDataByNameRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseManager/GetDataByDepartment", ReplyAction="*")]
+        System.Threading.Tasks.Task<ServiceReference2.GetDataByDepartmentResponse> GetDataByDepartmentAsync(ServiceReference2.GetDataByDepartmentRequest request);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -168,6 +174,166 @@ namespace ServiceReference2
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class GetDataByNameRequest
+    {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetDataByName", Namespace="http://tempuri.org/", Order=0)]
+        public ServiceReference2.GetDataByNameRequestBody Body;
+        
+        public GetDataByNameRequest()
+        {
+        }
+        
+        public GetDataByNameRequest(ServiceReference2.GetDataByNameRequestBody Body)
+        {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class GetDataByNameRequestBody
+    {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public string name;
+        
+        public GetDataByNameRequestBody()
+        {
+        }
+        
+        public GetDataByNameRequestBody(string name)
+        {
+            this.name = name;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class GetDataByNameResponse
+    {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetDataByNameResponse", Namespace="http://tempuri.org/", Order=0)]
+        public ServiceReference2.GetDataByNameResponseBody Body;
+        
+        public GetDataByNameResponse()
+        {
+        }
+        
+        public GetDataByNameResponse(ServiceReference2.GetDataByNameResponseBody Body)
+        {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class GetDataByNameResponseBody
+    {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
+        public ServiceReference2.Employee[] GetDataByNameResult;
+        
+        public GetDataByNameResponseBody()
+        {
+        }
+        
+        public GetDataByNameResponseBody(ServiceReference2.Employee[] GetDataByNameResult)
+        {
+            this.GetDataByNameResult = GetDataByNameResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class GetDataByDepartmentRequest
+    {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetDataByDepartment", Namespace="http://tempuri.org/", Order=0)]
+        public ServiceReference2.GetDataByDepartmentRequestBody Body;
+        
+        public GetDataByDepartmentRequest()
+        {
+        }
+        
+        public GetDataByDepartmentRequest(ServiceReference2.GetDataByDepartmentRequestBody Body)
+        {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class GetDataByDepartmentRequestBody
+    {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public string department;
+        
+        public GetDataByDepartmentRequestBody()
+        {
+        }
+        
+        public GetDataByDepartmentRequestBody(string department)
+        {
+            this.department = department;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class GetDataByDepartmentResponse
+    {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetDataByDepartmentResponse", Namespace="http://tempuri.org/", Order=0)]
+        public ServiceReference2.GetDataByDepartmentResponseBody Body;
+        
+        public GetDataByDepartmentResponse()
+        {
+        }
+        
+        public GetDataByDepartmentResponse(ServiceReference2.GetDataByDepartmentResponseBody Body)
+        {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class GetDataByDepartmentResponseBody
+    {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
+        public ServiceReference2.Employee[] GetDataByDepartmentResult;
+        
+        public GetDataByDepartmentResponseBody()
+        {
+        }
+        
+        public GetDataByDepartmentResponseBody(ServiceReference2.Employee[] GetDataByDepartmentResult)
+        {
+            this.GetDataByDepartmentResult = GetDataByDepartmentResult;
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
     public interface IDatabaseManagerChannel : ServiceReference2.IDatabaseManager, System.ServiceModel.IClientChannel
     {
@@ -230,6 +396,34 @@ namespace ServiceReference2
             inValue.Body = new ServiceReference2.InsertDataRequestBody();
             inValue.Body.data = data;
             return ((ServiceReference2.IDatabaseManager)(this)).InsertDataAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<ServiceReference2.GetDataByNameResponse> ServiceReference2.IDatabaseManager.GetDataByNameAsync(ServiceReference2.GetDataByNameRequest request)
+        {
+            return base.Channel.GetDataByNameAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<ServiceReference2.GetDataByNameResponse> GetDataByNameAsync(string name)
+        {
+            ServiceReference2.GetDataByNameRequest inValue = new ServiceReference2.GetDataByNameRequest();
+            inValue.Body = new ServiceReference2.GetDataByNameRequestBody();
+            inValue.Body.name = name;
+            return ((ServiceReference2.IDatabaseManager)(this)).GetDataByNameAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<ServiceReference2.GetDataByDepartmentResponse> ServiceReference2.IDatabaseManager.GetDataByDepartmentAsync(ServiceReference2.GetDataByDepartmentRequest request)
+        {
+            return base.Channel.GetDataByDepartmentAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<ServiceReference2.GetDataByDepartmentResponse> GetDataByDepartmentAsync(string department)
+        {
+            ServiceReference2.GetDataByDepartmentRequest inValue = new ServiceReference2.GetDataByDepartmentRequest();
+            inValue.Body = new ServiceReference2.GetDataByDepartmentRequestBody();
+            inValue.Body.department = department;
+            return ((ServiceReference2.IDatabaseManager)(this)).GetDataByDepartmentAsync(inValue);
         }
         
         public virtual System.Threading.Tasks.Task OpenAsync()

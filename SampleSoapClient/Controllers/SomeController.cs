@@ -9,10 +9,11 @@ namespace SampleSoapClient.Controllers
     [ApiController]
     public class SomeController : ControllerBase
     {
+        ISoapService soapServiceChannel = new SoapServiceClient(SoapServiceClient.EndpointConfiguration.BasicHttpBinding_ISoapService_soap);
+        IDatabaseManager databaseManagerChannel = new DatabaseManagerClient(DatabaseManagerClient.EndpointConfiguration.BasicHttpBinding_IDatabaseManager_soap);
         [HttpGet("Sum")]
         public async Task<IActionResult> gettt()
         {
-            ISoapService soapServiceChannel = new SoapServiceClient(SoapServiceClient.EndpointConfiguration.BasicHttpBinding_ISoapService_soap);
             var sumResponse = await soapServiceChannel.SumAsync(new SumRequest()
             {
                 Body = new SumRequestBody()
@@ -26,15 +27,38 @@ namespace SampleSoapClient.Controllers
         [HttpPost("Insert")]
         public async Task<IActionResult> posttt(Employee data)
         {
-            IDatabaseManager databaseManagerChannel = new DatabaseManagerClient(DatabaseManagerClient.EndpointConfiguration.BasicHttpBinding_IDatabaseManager_soap);
-            var sumResponse = await databaseManagerChannel.InsertDataAsync(new InsertDataRequest()
+            var insertDataResponse = await databaseManagerChannel.InsertDataAsync(new InsertDataRequest()
             {
                 Body = new InsertDataRequestBody()
                 {
                     data = data
                 }
             });
-            return Ok(sumResponse.Body.InsertDataResult);
+            return Ok(insertDataResponse.Body.InsertDataResult);
+        }
+        [HttpGet("GetByName")]
+        public async Task<IActionResult> getByName(string name)
+        {
+            var getDataByNameResponse = await databaseManagerChannel.GetDataByNameAsync(new GetDataByNameRequest()
+            {
+                Body = new GetDataByNameRequestBody()
+                {
+                    name = name
+                }
+            });
+            return Ok(getDataByNameResponse.Body.GetDataByNameResult);
+        }
+        [HttpGet("GetByDepartment")]
+        public async Task<IActionResult> getByDepartment(string department)
+        {
+            var getDataByDepartmentResponse = await databaseManagerChannel.GetDataByDepartmentAsync(new GetDataByDepartmentRequest()
+            {
+                Body = new GetDataByDepartmentRequestBody()
+                {
+                    department = department
+                }
+            });
+            return Ok(getDataByDepartmentResponse.Body.GetDataByDepartmentResult);
         }
     }
 }
